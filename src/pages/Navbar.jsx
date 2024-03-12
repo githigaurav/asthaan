@@ -30,7 +30,7 @@ export const Navbar = () => {
                   {
                     navItem?.map((btn, index)=>{
                       const{value, path}=btn
-                      return <button className="text-primaryBtn text-xl" key={index}>{value}</button>
+                      return <button className="text-secondaryTxt hover:text-primaryBtn text-xl" key={index}>{value}</button>
                     })
                   }
                </div>
