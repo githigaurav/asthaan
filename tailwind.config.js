@@ -7,11 +7,13 @@ export default {
   theme: {
     extend: {
       colors:{
-        "primaryBg":"#faf8ff",
-        "primaryBtn":"#5f449b",
-        "secondaryBtn":"#f3ebff",
-        "primaryHead":"#333333",
-        "primaryText":"#666"
+        "primaryBg":"#ffffff",
+        "secondaryBg":"#f5f7fb",
+        "primaryBtn":"#3270fc",
+        "primaryHead":"#144273",
+        "secondaryHead":"#3270fc",
+        "primaryTxt":"#757b8d",
+        "secondaryTxt":"#878fa9"
       }
     },
   },
