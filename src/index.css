@@ -10,10 +10,48 @@
   /* color: rgba(255, 255, 255, 0.87); */
   /* background-color: #242424; */
   background-color: #faf8ff;
+  scroll-behavior: smooth;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+
+}
+/* ::-webkit-scrollbar {
+background-color: inherit;
+width: 5px;
+height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+  margin-top: 3rem;
+
+} 
+
+::-webkit-scrollbar-thumb {
+background-color: rgb(144, 155, 252);
+position: absolute;
+bottom: 0;
+
+} */
+
+
+.scrollControl::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+.scrollControl::-webkit-scrollbar {
+  background-color: transparent;
+  border-radius: 10px;
+  height: 10px;
+}
+
+.scrollControl::-webkit-scrollbar-thumb {
+  background-color: rgb(129, 185, 223);
+  border-radius: 10px;
+
 }
 
