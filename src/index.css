@@ -46,7 +46,7 @@ bottom: 0;
 .scrollControl::-webkit-scrollbar {
   background-color: transparent;
   border-radius: 10px;
-  height: 10px;
+  height: 5px;
 }
 
 .scrollControl::-webkit-scrollbar-thumb {

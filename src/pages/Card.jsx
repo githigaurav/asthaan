@@ -12,7 +12,7 @@ const Card = () => {
 
     return (
         <>
-            <div className="max-w-[324px] min-w-[324px] p-3 border border-blue-600">
+            <div className="max-w-[324px] min-w-[324px] p-3 border ">
                 <section>
                     <section className="overflow-hidden">
                         <img src={data.image} alt="" className="hover:scale-125 transition-all duration-150 ease-in-out" />

@@ -36,7 +36,7 @@ export const Navbar = () => {
                </div>
                {/* mobile nav items */}
                
-                  <div className={`absolute  flex sm:hidden flex-col top-full ${open ? "top-full" : "-top-[1000px] "} bg-secondaryBg w-full left-0 gap-5 py-3 transition-all ease-in-out duration-300 `}>
+                  <div className={`absolute  flex sm:hidden flex-col top-full ${open ? "top-full" : "top-[-1000px] "} bg-secondaryBg w-full left-0 gap-5 py-3 transition-all ease-in-out duration-300 `}>
                   {
                     navItem?.map((btn , index)=>{
                       const{value, path}=btn

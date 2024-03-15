@@ -19,7 +19,15 @@ const Feature = () => {
   return (
     <>
       <div className="flex justify-center items-center p-3 flex-col gap-5">
-        <section ref={userRef} className=' max-w-[1440px] flex overflow-y-hidden overflow-x-auto gap-3 scroll-smooth scrollControl'>
+        <section className='text-primaryHead flex flex-col sm:flex-row justify-between items-center py-5 w-full max-w-[1440px]'>
+          <h3 className='font-bold text-2xl'>Latest propteries</h3>
+          <section className='flex'>
+            <button className='bg-primaryBtn text-white py-2 px-5 border'>All</button>
+            <button className='bg-primaryBtn text-white py-2 px-5 border'>For Sale</button>
+            <button className='bg-primaryBtn text-white py-2 px-5 border'>For Rent</button>
+          </section>
+        </section>
+        <section ref={userRef} className='w-full max-w-[400px] sm:max-w-[640px] md:max-w-[768px] lg:max-w-[1024px] xl:max-w-[1440px]  flex overflow-y-hidden overflow-x-hidden gap-3 scroll-smooth scrollControl shadow-sm '>
           <Card />
           <Card />
           <Card />
