@@ -18,7 +18,7 @@ const Feature = () => {
   }
   return (
     <>
-      <div className="flex justify-center items-center p-3 flex-col gap-5">
+      <div className="flex justify-center items-center p-3 flex-col gap-5 py-10 bg-primaryBg">
         <section className='text-primaryHead flex flex-col sm:flex-row justify-between items-center py-5 w-full max-w-[1440px]'>
           <h3 className='font-bold text-2xl'>Latest propteries</h3>
           <section className='flex'>
