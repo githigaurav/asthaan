@@ -3,11 +3,12 @@ import React from 'react'
 const Why = () => {
   return (
     <>
-        <section className='text-secondaryTxt w-full flex justify-center items-center py-10 bg-secondaryBg'>
-            <section className='flex max-w-[1440px]  w-full justify-between flex-col sm:flex-row gap-3'>
+        <section className='text-secondaryTxt w-full flex justify-center items-center py-10 bg-secondaryBg px-3'>
+            <section className='flex max-w-[1440px]  w-full justify-between flex-col lg:flex-row gap-3 '>
             <section className='flex flex-col gap-2 p-2'>
                 <h3 className='text-primaryHead font-bold text-2xl'>Why Choose Our Properties</h3>
                 <p>Check video presentation to find out more about us .</p>
+                
                 <section>
                     <section className='flex justify-center  gap-5 mt-10 '>
                         <div className=' text-white bg-primaryBtn h-fit p-4 rounded-md'>
@@ -47,10 +48,10 @@ const Why = () => {
                     </section>
                 </section>
             </section>
-            <section className='relative'>
-                <img src="https://nglproperty.com/wp-content/uploads/2023/12/Property.webp" alt="" className='w-[600px] h-fit p-3' />
-                <section className='absolute bottom-0 right-0 max-w-[300px] bg-primaryBtn text-white p-3 rounded-sm'>
-                    <p>Your website is fully responsive so visitors can view your content from their choice of device.
+            <section className='relative flex justify-center items-center text-sm sm:text-md '>
+                <img src="https://nglproperty.com/wp-content/uploads/2023/12/Property.webp" alt="" className='rounded-md shadow-md lg:shadow-lg max-w-[650px] w-full ' />
+                <section className='absolute bottom-0 right-0 max-w-[200px] md:max-w-[300px] bg-primaryBtn  text-white p-3 rounded-lg shadow-lg'>
+                    <p className=''>Your website is fully responsive so visitors can view your content from their choice of device.
                     </p>
                    <div>
                         <section className='italic mt-3'>
