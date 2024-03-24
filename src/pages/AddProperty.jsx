@@ -3,6 +3,7 @@ import React, { useState } from "react";
 const AddProperty = () => {
   const [open, setOpen] = useState(false);
   const [amenities, setAmenities] = useState("");
+  const [drag, setDrag]=useState(false)
   const [amenitiesVal, setAmenitiesVal] = useState(0);
   const [data, setData] = useState({
     propertyName: "",
@@ -21,6 +22,9 @@ const AddProperty = () => {
     price: 0,
     city: "",
     locality: "",
+    images:[
+      
+    ]
   });
 
   const handleAmenitiesChange = (e) => {
@@ -70,6 +74,46 @@ const AddProperty = () => {
     };
   };
 
+
+  const handleDragOver = (e)=>{
+      e.preventDefault()
+      setDrag(true)
+  }
+
+  const handleDragEnter = (e) => {
+    e.preventDefault();
+   
+};
+
+const handleDragLeave = () => {
+  setDrag(false);
+};
+
+const handleDrop = (e) => {
+  e.preventDefault();
+  const files = e.dataTransfer.files;
+  handleFiles(files);
+};
+
+const handleFiles = (files) => {
+  const newImages = [...data.images, ...files];
+  setData((prev) => ({ ...prev, images: newImages }));
+};
+
+const handleFileInput = (e) => {
+  const file = Array.from(e.target.files)
+  const exData = [...data.images , ...file.map((file)=> file)]
+  setData((prev)=> ({...prev, images:exData})) 
+};
+
+const handleDelete = (fileIndex) =>{
+  return()=>{
+    const exData=[...data.images]
+    const updateData=exData.filter((_, index)=> index !== fileIndex)
+    setData({...data, images:updateData})
+  }
+}
+console.log(data.images)
   return (
     <div className="flex justify-center items-center transition-all w-full p-3  ">
       <section className=" w-full max-w-[600px] h-fit   p-5 mt-5 grid grid-cols-2 gap-x-2 gap-y-3 sm:gap-y-5 shadow-lg border border-gray-200">
@@ -202,6 +246,51 @@ const AddProperty = () => {
           <option value="true">Yes</option>
           <option value="false">No</option>
         </select>
+
+
+    
+              {/* dropping zone for file upload  */}
+          <label htmlFor="uploadFile" className={`border py-5 px-3  col-span-2 flex justify-center items-center  border-dashed ${drag ? "border-blue-300 bg-blue-300 shadow-lg" : "border-gray-300"} w-full`}
+           onDragOver={handleDragOver}
+           onDragEnter={handleDragEnter}
+           onDragLeave={handleDragLeave}
+           onDrop={handleDrop}
+          >
+            <input type="file" id="uploadFile" className="hidden" multiple
+            onChange={handleFileInput}
+            />
+            <div className="flex justify-center items-center ">
+                <img src="./assets/upload.png" className="max-w-[100px]" alt="" />
+            </div>
+          </label>
+
+          {/* uploaded file bar */}
+          {
+        data.images.map((file , index)=>{
+          return    <section  className=" border p-3  col-span-2 bg-blue-600 rounded-md flex gap-3">
+          <img src={URL.createObjectURL(file) || "./assets/upload.png"} alt="" className="max-w-[50px] border rounded-md"/>
+          <section className="w-full flex  justify-center items-center flex-col gap-2 " >
+            <div className="w-full flex  justify-between    text-white">
+              <span>{file.name}</span>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6 hover:text-red-500 cursor-pointer"
+              onClick={handleDelete(index)}
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m6.75 12H9m1.5-12H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z" />
+              </svg>
+
+            </div>
+            {/* loading progress */}
+            <div className="bg-white w-full rounded-full flex items-center p-0 m-0 h-[10px] overflow-hidden">
+              <div className="bg-green-600 w-1/2 rounded-full px-5 text-white text-sm h-[10px]">
+                  
+              </div>
+            </div>
+          </section>
+      </section>
+        })
+       }
+       
+       
         <textarea name="" id="" cols="30" rows="10" placeholder="Other information of property " className=" border p-3  col-span-2 "></textarea>
         <button className="bg-primaryBtn p-2 hover:bg-primaryHead transition-all duration-150  text-white  col-span-2">
           Add Property
