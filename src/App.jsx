@@ -10,6 +10,9 @@ import SignUpPage from "./pages/SignUpPage";
 import Profile from "./pages/Profile";
 import {AuthRoutes} from "./routes/PrivateRoutes";
 import NoInternet from "./utils/NoInternet";
+import Dashboard from "./pages/Dashboard";
+import AddProperty from "./pages/AddProperty";
+import Test from "./pages/Test";
 
 const App = () => {
   const [online, setOnline] = useState(navigator.onLine);
@@ -21,6 +24,7 @@ const App = () => {
     window.addEventListener("online", handleOnline);
     window.addEventListener("offline", handleOffline);
 
+    // just a cleaner function
     return () => {
       window.removeEventListener("online", handleOnline);
       window.removeEventListener("offline", handleOffline);
@@ -39,9 +43,15 @@ const App = () => {
           <Route path="/" element={<HomeComp />} />
           <Route path="/sign-up" element={<SignUpPage />} />
           <Route path="/sign-in" element={<SignInPage />} />
+          <Route path="/test" element={<Test/>}/>
+
           <Route element={<AuthRoutes />}>
             <Route path="/profile" element={<Profile />} />
+            <Route path="/dashboard" element={<Dashboard/>}/>
+            <Route path="/addproperty" element={<AddProperty/>}/>
+
           </Route>
+
         </Routes>
       </Router>
     </>

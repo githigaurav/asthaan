@@ -1,9 +1,11 @@
 import React from 'react'
-import { useUser } from "@clerk/clerk-react";
-import { UserProfile,UserButton } from "@clerk/clerk-react";
+import { useUser , UserButton , useAuth } from "@clerk/clerk-react";
+
 const Profile = () => {
+  const {userId, sessionId}=useAuth()
     const { isSignedIn, user, isLoaded  } = useUser();
-    console.log(user)
+    console.log(userId)
+    console.log(sessionId)
   return (
     <>
         <section>

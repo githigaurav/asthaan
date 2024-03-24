@@ -1,12 +1,15 @@
 import React from "react";
 
+
 const Card = ({data}) => {
+
     return (
         <>
 
             {
-                data?.map((data)=>{
+                data?.map((data , index)=>{
                     return(
+                    <>
                         <div className="max-w-[324px] min-w-[324px] p-3 border ">
                         <section>
                             <section className="overflow-hidden">
@@ -17,13 +20,14 @@ const Card = ({data}) => {
                                 <hr className="max-w-[100px]" />
                                 <span>{data.landmark}</span>
                                 <h3 className="font-bold text-xl text-primaryHead">{data.location}</h3>
-                                <section className="flex gap-3">
+                                <section  className="flex gap-3"  key={index} >
                                     {data?.amities.map((avail)=> <span>{avail}</span>)}
                                 </section>
                                 <button className="font-semibold hover:text-primaryBtn transition-all ease-in-out duration-150 mt-3">See more details</button>
                             </section>
                         </section>
                     </div>
+                    </>
                     )
                 })
             }

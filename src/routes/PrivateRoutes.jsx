@@ -4,7 +4,8 @@ import { useAuth } from '@clerk/clerk-react'
 import Loader from '@/utils/Loader'
 
 const AuthRoutes = () => {
-  const { getToken, isLoaded, isSignedIn } = useAuth();
+  const {isLoaded, isSignedIn } = useAuth();
+
   if(!isLoaded){
     return <Loader/>
   }
